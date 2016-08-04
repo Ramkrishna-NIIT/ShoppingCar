@@ -1,42 +1,69 @@
-
 package dao;
 
+import java.util.*;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import model.Product;
 
+
+@Repository
 public class ProductDAOImpl {
 	
 	
-		
-		ArrayList<Product> Products=new ArrayList<Product>();
-		
-		public ProductDAOImpl(){
-	     Product p1=new Product("PRD1","Aixam 400","Micro Car",120000,"Good");
-	     Product p2=new Product("PRD2","Biscuter","Micro Car",150000,"Average");
-	     Product p3=new Product("PRD3","Mazda R360","Micro Car",200000,"Very Good");
-	     Product p4=new Product("PRD4","Subaru 360","Micro Car",250000,"Stylish");
-	     Product p5=new Product("PRD5","Smart Fortwo","Micro Car",300000,"Great");
-	     Product p6=new Product("PRD6","Corbin Sparrow","Micro Car",500000,"Excellent");
-	     Products.add(p1);
-	     Products.add(p2);
-	     Products.add(p3);
-	     Products.add(p4);
-	     Products.add(p5);
-	     Products.add(p6);
-		}
-		
-		public List<Product> getProductList()
-		{
-			return Products;
-		}
-	     
-	     
-	     
-	     
 	
+	  private SessionFactory sessionFactory;
+	  
+	  @Autowired
+	public ProductDAOImpl(SessionFactory sessionFactory)
+	{
+		this.sessionFactory=sessionFactory;
+	}
+	  public ProductDAOImpl() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	/*public void setSessionFactory(SessionFactory sf){
+		this.sessionFactory=sf;
+		
+	}*/
+	 public void addPerson(Product p) {
+	        Session session = this.sessionFactory.getCurrentSession();
+	        session.persist(p);
+	        
+	    }
+	    
+	    public void updatePerson(Product p) {
+	        Session session = this.sessionFactory.getCurrentSession();
+	        session.update(p);
+	    }
+	    
+	  
+		public List<Product> listPersons() {
+	        Session session = this.sessionFactory.getCurrentSession();
+	        List<Product> personsList = session.createQuery("from Product").list();
+	        return personsList;
+	    }
+	    
+	    public Product getPersonById(String id) {
+	        Session session = this.sessionFactory.getCurrentSession();      
+	        Product p = (Product) session.load(Product.class, new String(id));
+	        
+	        return p;
+	    }
+	    
+	    public void removePerson(String id) {
+	        Session session = this.sessionFactory.getCurrentSession();
+	        Product p = (Product) session.load(Product.class, new String(id));
+	        if(null != p){
+	            session.delete(p);
+	        }
+	        
+	    }
+
 
 }
