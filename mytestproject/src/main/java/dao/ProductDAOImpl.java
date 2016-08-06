@@ -6,7 +6,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
+
 
 import model.Product;
 
@@ -24,16 +24,13 @@ public class ProductDAOImpl {
 		this.sessionFactory=sessionFactory;
 	}
 	  public ProductDAOImpl() {
-		// TODO Auto-generated constructor stub
+		
 	}
 	
-	/*public void setSessionFactory(SessionFactory sf){
-		this.sessionFactory=sf;
-		
-	}*/
+
 	 public void addPerson(Product p) {
 	        Session session = this.sessionFactory.getCurrentSession();
-	        session.persist(p);
+	        session.save(p);
 	        
 	    }
 	    
@@ -49,16 +46,16 @@ public class ProductDAOImpl {
 	        return personsList;
 	    }
 	    
-	    public Product getPersonById(String id) {
+	    public Product getPersonById(int id) {
 	        Session session = this.sessionFactory.getCurrentSession();      
-	        Product p = (Product) session.load(Product.class, new String(id));
+	        Product p = session.load(Product.class, new Integer(id));
 	        
 	        return p;
 	    }
 	    
-	    public void removePerson(String id) {
+	    public void removePerson(int id) {
 	        Session session = this.sessionFactory.getCurrentSession();
-	        Product p = (Product) session.load(Product.class, new String(id));
+	        Product p = session.load(Product.class, new Integer(id));
 	        if(null != p){
 	            session.delete(p);
 	        }

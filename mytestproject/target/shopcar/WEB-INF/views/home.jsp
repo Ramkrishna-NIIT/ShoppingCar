@@ -132,8 +132,8 @@ margin-top:20px;
 				<li class="dropdown"><a href="#" data-toggle="dropdown"
 					class="dropdown-toggle">Car Products<b class="caret"></b></a>
 					<ul class="dropdown-menu">
-						<li><a href="showhyndaicar">Hyndai</a></li>
-						<li><a href="products">Maruti</a></li>
+						<li><a href="showuserdetails">Hyndai</a></li>
+						<li><a href="Marutiproducts">Maruti</a></li>
 						<li><a href="#">Volvo</a></li>
 						<li><a href="#">Mercedes</a></li>
 						<li><a href="#">Renault Duster</a></li>
@@ -150,7 +150,7 @@ margin-top:20px;
 				</a>
 				<li><a href="#" target="_blank">My Cart</a></li>
 
-				<li><a href="#" target="_blank">Login</a></li>
+				<li><a href="products">Login</a></li>
 				<li><a href="registration">Register</a></li>
 			</ul>
 

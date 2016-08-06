@@ -1,10 +1,9 @@
  package controller;
 
+
 import java.util.ArrayList;
 import java.util.List;
 import model.*;
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import com.google.gson.Gson;
-import dao.HyndaiProductDAOImpl;
-import dao.MarutiProductDAOImpl;
+
+
 
 
 @Controller
@@ -26,13 +25,12 @@ public class HomeController {
 	
 	@Autowired
 	public HomeController(ProductService ps) {
-		// TODO Auto-generated constructor stub
+		
 		this.ps=ps;
 	}
 	
 	public HomeController() {
-		// TODO Auto-generated constructor stub
-	}
+		}
     @RequestMapping(value={"/","Showhomepage"})
 	public String showHomePage()
 	{
@@ -45,7 +43,7 @@ public class HomeController {
 		return "registration";
 	}
     
-    @RequestMapping("/showhyndaicar")
+   /* @RequestMapping("/showhyndaicar")
    	public ModelAndView showMicrocar()
    	{
     	ModelAndView mv=new ModelAndView("hyndaidatatable");
@@ -58,7 +56,7 @@ public class HomeController {
    		//return "datatable";
     	return mv;
    	}
-    
+*/    
     
     /*    @RequestMapping(value="", method = RequestMethod.GET)
         public String listPersons(Model model) {
@@ -83,15 +81,10 @@ public class HomeController {
 		return mv;
 
     }
-
-    
-    
-   
-    
     @RequestMapping(value= "/marutidatatable/add", method = RequestMethod.POST)
     public String addPerson(@ModelAttribute("product") Product p){
         
-        if(p.getId() == null){
+        if(p.getId() == 0){
             //new person, add it
             this.ps.addPerson(p);
         }else{
@@ -102,19 +95,25 @@ public class HomeController {
         return "redirect:/products";
          }
     @RequestMapping("/remove/{id}")
-    public String removePerson(@PathVariable("id") String id){
+    public String removePerson(@PathVariable("id") int id){
          
         this.ps.removePerson(id);
         return "redirect:/products";
     }
     
     @RequestMapping("/edit/{id}")
-    public String editPerson(@PathVariable("id") String id, Model model){
+    public String editPerson(@PathVariable("id") int id, Model model){
         model.addAttribute("student", this.ps.getPersonById(id));
         model.addAttribute("listfromtable", this.ps.listPersons());
         return "marutidatatable";
     }
     
+    
+    @RequestMapping(value="/showuserdetails",method = RequestMethod.GET)
+    public String userProductDetails(Model model) {
+        model.addAttribute("listtojsp", this.ps.listPersons());
+        return "UserDetails";
+    }
     
     
 

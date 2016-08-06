@@ -12,7 +12,7 @@ import model.Product;
 
 
 @Service
-@Transactional
+@Transactional 
 public class ProductService {
 	
 	public ProductDAOImpl pdi;
@@ -41,12 +41,12 @@ public class ProductService {
     }
 	
 	//@Transactional
-    public Product getPersonById(String id) {
+    public Product getPersonById(int id) {
         return this.pdi.getPersonById(id);
     }
 	
 
-    public void removePerson(String id) {
+    public void removePerson(int id) {
         this.pdi.removePerson(id);
     }
 

@@ -1,10 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
-    <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>  
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
+<!DOCTYPE html>  
+ <html>  
  <head>  
    <title>Angular JS table sort and filter example </title>  
    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">  
@@ -21,8 +20,8 @@
          $scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse : false;  
          $scope.predicate = predicate;  
        };  
-       $scope.products = ${myJson};  //This code is extracting the string object being sent from controller
-       $scope.totalItems = $scope.products.length;  
+       $scope.students = ${myJson};  
+       $scope.totalItems = $scope.students.length;  
        $scope.numPerPage = 5;  
        $scope.paginate = function (value) {  
          var begin, end, index;  
@@ -48,8 +47,8 @@
        height: 30px;  
      }  
    </style>  
- </head> 
- <body>
+ </head>  
+
  <h2>Add Product</h2>
 
 <c:url var="addAction" value="/marutidatatable/add" ></c:url>
@@ -58,54 +57,54 @@
     <c:if test="${!empty product.name}">
     <tr>
         <td>
-            <form:label path="model_id">
-                <spring:message text="MODEL_ID"/>
+            <form:label path="id">
+                <spring:message text="ID"/>
             </form:label>
         </td>
         <td>
-            <form:input path="model_id" readonly="true" size="8"  disabled="true" />
-            <form:hidden path="model_id" />
+            <form:input path="id" readonly="true" size="8"  disabled="true" />
+            <form:hidden path="id" />
         </td> 
     </tr>
     </c:if>
     <tr>
         <td>
-            <form:label path="model_name">
-                <spring:message text="MODEL_NAME"/>
+            <form:label path="name">
+                <spring:message text="NAME"/>
             </form:label>
         </td>
         <td>
-            <form:input path="model_name" />
+            <form:input path="name" />
         </td> 
     </tr>
     <tr>
         <td>
-            <form:label path="model_price">
-                <spring:message text="MODEL_PRICE"/>
+            <form:label path="price">
+                <spring:message text="PRICE"/>
             </form:label>
         </td>
         <td>
-            <form:input path="model_price" />
+            <form:input path="price" />
         </td>
     </tr>
     <tr>
         <td>
-            <form:label path="model_category">
-                <spring:message text="MODEL_CATEGORY"/>
+            <form:label path="category">
+                <spring:message text="CATEGORY"/>
             </form:label>
         </td>
         <td>
-            <form:input path="model_category" />
+            <form:input path="category" />
         </td>
     </tr>
     <tr>
         <td>
-            <form:label path="model_millage">
-                <spring:message text="MODEL_MILAGE"/>
+            <form:label path="milage">
+                <spring:message text="MILAGE"/>
             </form:label>
         </td>
         <td>
-            <form:input path="model_millage" />
+            <form:input path="milage" />
         </td>
     </tr>
     <tr>
@@ -141,7 +140,7 @@
         </td>
     </tr>
 </table>  
-</form:form>
+</form:form> 
 <br> 
  <body ng-app="MyForm">  
    <div ng-controller="myCtrl">  
@@ -152,18 +151,18 @@
        <table class="table table-striped">  
          <thead>  
            <tr>  
-             
+             <th>Edit</th>
              <th>  
                <a href="" ng-click="order('id')">Id</a>  
              </th>   
              <th>  
                <a href="" ng-click="order('name')">Name</a>  
              </th>  
-             <th><a href="" ng-click="order('price')"> Price</a> </th>  
-             <th><a href="" ng-click="order('category')">Category</a> </th>
-              <th><a href="" ng-click="order('milage')">Milage</a> </th>
-               <th><a href="" ng-click="order('displacement')">Displacement</a> </th>
-                <th><a href="" ng-click="order('description')">Description</a> </th>  
+             <th><a href="" ng-click="order('price')"> Age</a> </th>  
+             <th><a href="" ng-click="order('category')">Gender</a> </th>
+                <th><a href="" ng-click="order('milage')"> Age</a> </th>  
+             <th><a href="" ng-click="order('displacement')">Gender</a> </th>  
+                <th><a href="" ng-click="order('description')"> Age</a> </th>
            </tr>  
          </thead>  
          <tbody>  
@@ -173,27 +172,28 @@
              <td> <input type="text" ng-model="search.name" /></td>  
              <td> <input type="text" ng-model="search.price" /> </td>  
              <td><input type="text" ng-model="search.category" /> </td>  
-              <td><input type="text" ng-model="search.milage" /> </td>
-              <td><input type="text" ng-model="search.displacement" /> </td>
-              <td><input type="text" ng-model="search.description" /> </td>  
-           </tr>             
-           <tr ng-repeat="element in products | orderBy:predicate:reverse | filter:paginate| filter:search" ng-class-odd="'odd'">  
+             <td> <input type="text" ng-model="search.milage" /></td>  
+             <td> <input type="text" ng-model="search.displacement" /> </td>  
+             <td><input type="text" ng-model="search.description" /> </td> 
+           </tr>  
+           <tr ng-repeat="user in students | orderBy:predicate:reverse | filter:paginate| filter:search" ng-class-odd="'odd'">  
              <td>  
-              <!--  <button class="btn">  
+               <button class="btn">  
                  Edit  
-               </button>  --> 
+               </button>  
              </td>
-             <td>{{ element.id}}</td>  
-             <td>{{ element.name}}</td>  
-             <td>{{ element.price}}</td>  
-             <td>{{ element.category}}</td> 
-             <td>{{ element.milage}}</td> 
-             <td>{{ element.displacement}}</td>
-             <td>{{ element.description}}</td>
-             <td><a href="<c:url value='/edit/${element.model_id}' />" >Edit</a></td>
-            <td><a href="<c:url value='/remove/${element.model_id}' />" >Delete</a></td>
-           </tr>
-           
+             <td>{{ user.id}}</td>  
+             <td>{{ user.name}}</td>  
+             <td>{{ user.price}}</td>  
+             <td>{{ user.category}}</td> 
+             <td>{{ user.milage}}</td>  
+             <td>{{ user.displacement}}</td>  
+             <td>{{ user.description}}</td> 
+             <td><a href="<c:url value='/edit/{{user.id}}' />" >Edit</a></td>
+            	<td><a href="<c:url value='/remove/{{user.id}}' />" >Delete</a></td>
+             
+
+           </tr>  
          </tbody>  
        </table>  
        <pagination total-items="totalItems" ng-model="currentPage"  
@@ -203,7 +203,7 @@
      </div>  
    </div>  
    
-   ${myJson}
- 
+  
+   
  </body>  
- </html>
+ </html>  

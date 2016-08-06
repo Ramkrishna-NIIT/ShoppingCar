@@ -1,9 +1,9 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
-    <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
-    <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>  
+<!DOCTYPE html>  
+ <html>  
  <head>  
    <title>Angular JS table sort and filter example </title>  
    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">  
@@ -20,8 +20,8 @@
          $scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse : false;  
          $scope.predicate = predicate;  
        };  
-       $scope.products = ${myJson};  //This code is extracting the string object being sent from controller
-       $scope.totalItems = $scope.products.length;  
+       $scope.students = ${myJson};  
+       $scope.totalItems = $scope.students.length;  
        $scope.numPerPage = 5;  
        $scope.paginate = function (value) {  
          var begin, end, index;  
@@ -47,8 +47,8 @@
        height: 30px;  
      }  
    </style>  
- </head> 
- <body>
+ </head>  
+
  <h2>Add Product</h2>
 
 <c:url var="addAction" value="/marutidatatable/add" ></c:url>
@@ -140,58 +140,60 @@
         </td>
     </tr>
 </table>  
-</form:form>
+</form:form> 
 <br> 
  <body ng-app="MyForm">  
    <div ng-controller="myCtrl">  
-     <h3>List Products</h3>  
+     <h3>List students</h3>  
      <div class="container-fluid">  
+       <pre>Click header link to sort, input into filter text to filter</pre>  
        <hr />  
        <table class="table table-striped">  
          <thead>  
            <tr>  
-             
+             <th>Edit</th>
              <th>  
                <a href="" ng-click="order('id')">Id</a>  
              </th>   
              <th>  
                <a href="" ng-click="order('name')">Name</a>  
              </th>  
-             <th><a href="" ng-click="order('price')"> Price</a> </th>  
-             <th><a href="" ng-click="order('category')">Category</a> </th>
-              <th><a href="" ng-click="order('milage')">milage</a> </th>
-               <th><a href="" ng-click="order('displacement')">Displacement</a> </th>
-                <th><a href="" ng-click="order('description')">Description</a> </th>  
+             <th><a href="" ng-click="order('price')"> Age</a> </th>  
+             <th><a href="" ng-click="order('category')">Gender</a> </th>
+                <th><a href="" ng-click="order('milage')"> Age</a> </th>  
+             <th><a href="" ng-click="order('displacement')">Gender</a> </th>  
+                <th><a href="" ng-click="order('description')"> Age</a> </th>
            </tr>  
          </thead>  
          <tbody>  
            <tr>  
-              
+             <td>Filter =>></td>  
              <td> <input type="text" ng-model="search.id" /></td>  
              <td> <input type="text" ng-model="search.name" /></td>  
              <td> <input type="text" ng-model="search.price" /> </td>  
              <td><input type="text" ng-model="search.category" /> </td>  
-              <td><input type="text" ng-model="search.milage" /> </td>
-              <td><input type="text" ng-model="search.displacement" /> </td>
-              <td><input type="text" ng-model="search.description" /> </td>  
-           </tr>             
-           <tr ng-repeat="element in products | orderBy:predicate:reverse | filter:paginate| filter:search" ng-class-odd="'odd'">  
+             <td> <input type="text" ng-model="search.milage" /></td>  
+             <td> <input type="text" ng-model="search.displacement" /> </td>  
+             <td><input type="text" ng-model="search.description" /> </td> 
+           </tr>  
+           <tr ng-repeat="user in students | orderBy:predicate:reverse | filter:paginate| filter:search" ng-class-odd="'odd'">  
              <td>  
-              <!--  <button class="btn">  
+               <button class="btn">  
                  Edit  
-               </button>  --> 
+               </button>  
              </td>
-             <td>{{ element.id}}</td>  
-             <td>{{ element.name}}</td>  
-             <td>{{ element.price}}</td>  
-             <td>{{ element.category}}</td> 
-             <td>{{ element.milage}}</td> 
-             <td>{{ element.displacement}}</td>
-             <td>{{ element.description}}</td>
-             <td><a href="<c:url value='/edit/${element.id}' />" >Edit</a></td>
-            <td><a href="<c:url value='/remove/${element.id}' />" >Delete</a></td>
-           </tr>
-           
+             <td>{{ user.id}}</td>  
+             <td>{{ user.name}}</td>  
+             <td>{{ user.price}}</td>  
+             <td>{{ user.category}}</td> 
+             <td>{{ user.milage}}</td>  
+             <td>{{ user.displacement}}</td>  
+             <td>{{ user.description}}</td> 
+             <td><a href="<c:url value='/edit/{{user.id}}' />" >Edit</a></td>
+            	<td><a href="<c:url value='/remove/{{user.id}}' />" >Delete</a></td>
+             
+
+           </tr>  
          </tbody>  
        </table>  
        <pagination total-items="totalItems" ng-model="currentPage"  
@@ -201,7 +203,7 @@
      </div>  
    </div>  
    
-
- 
+  
+   
  </body>  
- </html>
+ </html>  
