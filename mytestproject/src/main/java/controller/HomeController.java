@@ -43,29 +43,9 @@ public class HomeController {
 		return "registration";
 	}
     
-   /* @RequestMapping("/showhyndaicar")
-   	public ModelAndView showMicrocar()
-   	{
-    	ModelAndView mv=new ModelAndView("hyndaidatatable");
-    	
-    	HyndaiProductDAOImpl hyndaiProductDAOImpl=new HyndaiProductDAOImpl();
-    	List<HyndaiProduct> hyndaiProductlist=new ArrayList<HyndaiProduct>();
-    	hyndaiProductlist=hyndaiProductDAOImpl.getHyndaiProductList();
-    	
-    	mv.addObject("listtojsp", hyndaiProductlist);
-   		//return "datatable";
-    	return mv;
-   	}
-*/    
+   
     
-    /*    @RequestMapping(value="", method = RequestMethod.GET)
-        public String listPersons(Model model) {
-    	
-    	    model.addAttribute("product", new Product());
-	        model.addAttribute("listfromtable", this.ps.listPersons());
-	        return "marutidatatable";
-    
-    }*/
+
     
     
     @RequestMapping(value="/products",method = RequestMethod.GET)

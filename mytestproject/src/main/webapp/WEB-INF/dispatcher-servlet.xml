@@ -31,9 +31,9 @@
 
     
     <!-- ========Creating beans for the autowired objects ========== -->
-    <bean id="pdi" class="dao.ProductDAOImpl"></bean>
+   <!--  <bean id="pdi" class="dao.ProductDAOImpl"></bean>
 	<bean id="ps" class="controller.ProductService"></bean>
-	
+	 -->
     
     
 
