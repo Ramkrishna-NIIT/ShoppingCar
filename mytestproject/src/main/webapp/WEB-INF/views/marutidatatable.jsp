@@ -1,7 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%-- <jsp:include page="headercar.jsp" /> --%>
+
 <!DOCTYPE html>  
  <html>  
  <head>  
@@ -48,11 +48,11 @@
      }  
    </style>  
  </head>  
-
+<%@ include file="headercar.jsp" %>
  <h2>Add Product</h2>
 
 <c:url var="addAction" value="/marutidatatable/add" ></c:url>
-<form:form action="${addAction}" commandName="product">
+<form:form action="${addAction}" commandName="product" enctype="multipart/form-data" method="POST">
 <table>
     <c:if test="${!empty product.name}">
     <tr>
@@ -128,6 +128,16 @@
         </td>
     </tr>
     <tr>
+    	<td>
+    		<form:label path="image">
+    			<spring:message text="Upload Image"/>
+    		</form:label>
+    	</td>
+    	<td>
+    		<form:input path="image" type="file"/>
+    	</td>
+    </tr> 
+    <tr>
         <td colspan="2">
             <c:if test="${!empty product.name}">
                 <input type="submit"
@@ -144,7 +154,7 @@
 <br> 
  <body ng-app="MyForm">  
    <div ng-controller="myCtrl">  
-     <h3>List students</h3>  
+     <h3>List Products</h3>  
      <div class="container-fluid">  
        <pre>Click header link to sort, input into filter text to filter</pre>  
        <hr />  
@@ -158,11 +168,11 @@
              <th>  
                <a href="" ng-click="order('name')">Name</a>  
              </th>  
-             <th><a href="" ng-click="order('price')"> Age</a> </th>  
-             <th><a href="" ng-click="order('category')">Gender</a> </th>
-                <th><a href="" ng-click="order('milage')"> Age</a> </th>  
-             <th><a href="" ng-click="order('displacement')">Gender</a> </th>  
-                <th><a href="" ng-click="order('description')"> Age</a> </th>
+             <th><a href="" ng-click="order('price')"> price</a> </th>  
+             <th><a href="" ng-click="order('category')">category</a> </th>
+                <th><a href="" ng-click="order('milage')"> milage</a> </th>  
+             <th><a href="" ng-click="order('displacement')">displacement</a> </th>  
+                <th><a href="" ng-click="order('description')"> description</a> </th>
            </tr>  
          </thead>  
          <tbody>  
@@ -182,13 +192,13 @@
                  Edit  
                </button>  
              </td>
-             <td>{{ user.id}}</td>  
-             <td>{{ user.name}}</td>  
-             <td>{{ user.price}}</td>  
-             <td>{{ user.category}}</td> 
-             <td>{{ user.milage}}</td>  
-             <td>{{ user.displacement}}</td>  
-             <td>{{ user.description}}</td> 
+             <td>{{user.id}}</td>  
+             <td>{{user.name}}</td>  
+             <td>{{user.price}}</td>  
+             <td> {{user.category}}</td> 
+             <td>{{user.milage}}</td>  
+             <td>{{user.displacement}}</td>  
+             <td>{{user.description}}</td> 
              <td><a href="<c:url value='/edit/{{user.id}}' />" >Edit</a></td>
             	<td><a href="<c:url value='/remove/{{user.id}}' />" >Delete</a></td>
              
@@ -203,7 +213,8 @@
      </div>  
    </div>  
    
-  
-   
+${myJson}
+<br>
+     <%@ include file="footercar.jsp" %>
  </body>  
  </html>  

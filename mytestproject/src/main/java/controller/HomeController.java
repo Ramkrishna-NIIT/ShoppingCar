@@ -1,9 +1,16 @@
  package controller;
 
-
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
 import model.*;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,8 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import com.google.gson.Gson;
-
-
+import controller.ProductService;
 
 
 @Controller
@@ -43,10 +49,14 @@ public class HomeController {
 		return "registration";
 	}
     
+    @RequestMapping(value="/showuserdetails",method = RequestMethod.GET)
+   	public String showUserDeatils(Model model)
+   	{
+    	 model.addAttribute("listtojsp", this.ps.listPersons());
+     	return "UserDetails";
+   	}
+	
    
-    
-
-    
     
     @RequestMapping(value="/products",method = RequestMethod.GET)
     public ModelAndView listPersons(Model model){
@@ -62,18 +72,51 @@ public class HomeController {
 
     }
     @RequestMapping(value= "/marutidatatable/add", method = RequestMethod.POST)
-    public String addPerson(@ModelAttribute("product") Product p){
+    public String addPerson(@ModelAttribute("product") Product p, HttpServletRequest request){
         
-        if(p.getId() == 0){
+    	/*************************************/
+    	
+    	String filename=null;
+		  byte[] bytes;
+		  if(!p.getImage().isEmpty())
+	        {
+			 
+	            try
+	            {
+	            	bytes=p.getImage().getBytes();
+	                this.ps.addPerson(p);
+	                System.out.println("Data Inserted");
+					String path=request.getSession().getServletContext().getRealPath("/resources/images/"+p.getId()+".jpg");
+					System.out.println("Path = "+path);
+					System.out.println("File name = "+p.getImage().getOriginalFilename());
+					File f=new File(path);
+					BufferedOutputStream bs=new BufferedOutputStream(new FileOutputStream(f));
+					bs.write(bytes);
+					bs.close();
+					System.out.println("Image uploaded");
+	            }
+				catch(Exception ex)
+	            {
+	                System.out.println(ex.getMessage());
+	            }
+	        }
+    	
+    	
+    	
+    	/************************************/
+       /* if(p.getId() == 0){
             //new person, add it
             this.ps.addPerson(p);
         }else{
             //existing person, call update
             this.ps.updatePerson(p);
-        }
+        }*/
          
         return "redirect:/products";
-         }
+	        
+    }
+    
+    
     @RequestMapping("/remove/{id}")
     public String removePerson(@PathVariable("id") int id){
          
@@ -88,12 +131,6 @@ public class HomeController {
         return "marutidatatable";
     }
     
-    
-    @RequestMapping(value="/showuserdetails",method = RequestMethod.GET)
-    public String userProductDetails(Model model) {
-        model.addAttribute("listtojsp", this.ps.listPersons());
-        return "UserDetails";
-    }
     
     
 

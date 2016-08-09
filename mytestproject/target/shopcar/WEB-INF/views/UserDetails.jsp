@@ -1,10 +1,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
-<html lang="en">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
 <head>
 <meta charset="UTF-8">
 <title>data table</title>
@@ -48,25 +49,23 @@ tr:nth-child(even){background-color: #f2f2f2}
             <th> name</th>  
             <th>price</th>  
             <th>category</th> 
-            <th>category</th>
-            <th>displacement</th> 
+            <th>milage</th>
+             <th>displacement</th> 
             <th>description</th>
              
           </tr>  
         </thead> 
         <tbody>
-        <c:forEach items="${listtojsp}" var="element">
+        <c:forEach items="${listtojsp}" var="user">
           <tr>  
-            <td>${element.id}</td>  
-            <td>${element.name}</td>  
-            <td>${element.price}</td>  
-            <td>${element.category}</td> 
-           <td>${element.milage}</td>
-            <td>${element.displacement}</td> 
-           <td>${element.description}</td>
-             <td><a href="<c:url value='/edit/{{user.id}}' />" >Edit</a></td>
-            	<td><a href="<c:url value='/remove/{{user.id}}' />" >Delete</a></td>
-           
+            <td>{{ user.id}}</td>  
+             <td>{{ user.name}}</td>  
+             <td>{{ user.price}}</td>  
+             <td>{{ user.category}}</td> 
+             <td>{{ user.milage}}</td>  
+             <td>{{ user.displacement}}</td>  
+             <td>{{ user.description}}</td> 
+
         
            </tr>  
  	</c:forEach>
@@ -75,4 +74,4 @@ tr:nth-child(even){background-color: #f2f2f2}
       </table> 
      </div> 
 </body>
-</html>                                		
+</html>

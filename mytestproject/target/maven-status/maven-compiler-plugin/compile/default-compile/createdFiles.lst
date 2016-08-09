@@ -2,5 +2,5 @@ controller\ProductService.class
 dao\ProductDAOImpl.class
 model\MarutiProduct.class
 controller\HomeController.class
+model\HyndaiProduct.class
 model\Product.class
-dao\MarutiProductDAOImpl.class
