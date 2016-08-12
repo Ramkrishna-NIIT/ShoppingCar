@@ -200,7 +200,7 @@
              <td>{{user.displacement}}</td>  
              <td>{{user.description}}</td> 
              <td><a href="<c:url value='/edit/{{user.id}}' />" >Edit</a></td>
-            	<td><a href="<c:url value='/remove/{{user.id}}' />" >Delete</a></td>
+            <td><a href="<c:url value='/remove/{{user.id}}' />" >Delete</a></td>
              
 
            </tr>  

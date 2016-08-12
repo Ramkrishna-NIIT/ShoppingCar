@@ -60,6 +60,27 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 			<artifactId>spring-web</artifactId>
 			<version>4.2.6.RELEASE</version>
 		</dependency>
+		<!-- ================spring security================= -->
+		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-web -->
+<dependency>
+    <groupId>org.springframework.security</groupId>
+    <artifactId>spring-security-web</artifactId>
+    <version>4.0.4.RELEASE</version>
+</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-config -->
+<dependency>
+    <groupId>org.springframework.security</groupId>
+    <artifactId>spring-security-config</artifactId>
+    <version>4.0.4.RELEASE</version>
+</dependency>
+<!-- ===============Spring Security JSP Taglib================ -->
+		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-taglibs -->
+<dependency>
+    <groupId>org.springframework.security</groupId>
+    <artifactId>spring-security-taglibs</artifactId>
+    <version>4.0.4.RELEASE</version>
+</dependency>
+		
 		<!-- https://mvnrepository.com/artifact/org.json/json -->
 		<dependency>
 			<groupId>org.json</groupId>

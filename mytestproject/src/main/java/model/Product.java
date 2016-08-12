@@ -31,7 +31,7 @@ public class Product implements Serializable{
 	private String description;
 	
 	@Transient
-	private MultipartFile image;
+	private MultipartFile image ;
 	
     
 	

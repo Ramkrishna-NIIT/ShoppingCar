@@ -1,3 +1,5 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
@@ -88,103 +90,96 @@
 		<p class="text-success">Register Yourself</p>
 	</h1>
 
-	<div class="bs-example">
-		<form class="form-horizontal" role="form">
-			<div class="form-group">
-				<h4>
-					<label for="lastname" class="col-sm-4 control-label"><span
-						class="label label-info">Fast Name</span></label>
-				</h4>
-				<div class="col-sm-4">
-					<input type="text" class="form-control" id="firstname"
-						placeholder="Enter First Name">
-				</div>
-			</div>
-
-			<div class="form-group">
-				<h4>
-					<label for="lastname" class="col-sm-4 control-label"><span
-						class="label label-info">Last Name</span></label>
-				</h4>
-
-				<div class="col-sm-4">
-					<input type="text" class="form-control" id="lastname"
-						placeholder="Enter Last Name">
-				</div>
-
-			</div>
-
-			<div class="form-group">
-				<h4>
-					<label for="lastname" class="col-sm-4 control-label"><span
-						class="label label-info">Email</span></label>
-				</h4>
-
-				<div class="col-sm-4">
-					<input type="text" class="form-control" id="Email"
-						placeholder="Enter Your Email Address">
-				</div>
-
-			</div>
-			<div class="form-group">
-				<h4>
-					<label for="lastname" class="col-sm-4 control-label"><span
-						class="label label-info">Mobile Number</span></label>
-				</h4>
-
-				<div class="col-sm-4">
-					<input type="digit" class="form-control" id="lastname"
-						placeholder="+91________Enter your Mobile Number">
-				</div>
-
-			</div>
-
-			<div class="form-group">
-				<h4>
-					<label for="lastname" class="col-sm-4 control-label"><span
-						class="label label-info">Password</span></label>
-				</h4>
-
-				<div class="col-sm-4">
-					<input type="password" class="form-control" id="lastname"
-						placeholder="Enter your Password">
-				</div>
-
-			</div>
-			<div class="form-group">
-				<h4>
-					<label for="lastname" class="col-sm-4 control-label"><span
-						class="label label-info">Confirm Password</span></label>
-				</h4>
-
-				<div class="col-sm-4">
-					<input type="password" class="form-control" id="lastname"
-						placeholder="Enter your Confirm Password">
-				</div>
-
-			</div>
 	
+<c:url var="addAction" value="/user/add" ></c:url>
+<form:form action="${addAction}" commandName="user" method="POST" >
 
-	<div class="form-group">
-		<div class="col-sm-offset-4 col-sm-4">
-			<div class="checkbox">
-				<label><input type="checkbox"> Check your Details</label>
-			</div>
-		</div>
-	</div>
-	
-	<div class="form-group">
-		<div class="col-sm-offset-4 col-sm-4">
-			<button type="submit" class="btn btn-default">
-				<span class="label label-primary">Sign In
-			</button>
-			</span>
-		</div>
-	</div>
+<table>
 
-	</form>
+ <c:if test="${!empty user.username}">
+    <tr>
+        <td>
+            <form:label path="id">
+                <spring:message text="ID"/>
+            </form:label>
+        </td>
+        <td>
+            <form:input path="id" readonly="true" size="8"  disabled="true" />
+            <form:hidden path="id" />
+        </td> 
+    </tr>
+    </c:if>
+
+<tr>
+
+<td>User Name:<FONT color="red"><form:errors
+
+path="username" /></FONT></td>
+
+</tr>
+
+<tr>
+
+<td><form:input path="username" /></td>
+
+</tr>
+
+<tr>
+
+<td>Password:<FONT color="red"><form:errors
+
+path="password" /></FONT></td>
+
+</tr>
+
+<tr>
+
+<td><form:password path="password" /></td>
+
+</tr>
+
+<tr>
+
+<td>Confirm Password:<FONT color="red"><form:errors
+
+path="confirmpassword" /></FONT></td>
+
+</tr>
+
+<tr>
+
+<td><form:password path="confirmpassword" /></td>
+
+</tr>
+
+<tr>
+
+<td>Email:<FONT color="red"><form:errors path="email" /></FONT></td>
+
+</tr>
+
+<tr>
+
+<td><form:input path="email" /></td>
+
+</tr>
+
+<tr>
+
+<td>
+ <c:if test="${empty user.username}">
+<button type="submit" value="Submit">Sign In</button>
+</td>
+</c:if>
+</tr>
+
+</table>
+
+</form:form>
+
+
 	
-	</div>
+<!-- 	</div>
 	<br>
 	<br>
 	<br>
@@ -192,7 +187,7 @@
 
 	<nav id="myNavbar"
 		class="navbar navbar-default navbar-inverse navbar-fixed-bottom"
-		role="navigation"> <!-- Brand and toggle get grouped for better mobile display -->
+		role="navigation"> Brand and toggle get grouped for better mobile display
 	<div class="container-fluid">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse"
@@ -234,7 +229,7 @@
 	</div>
 
 	</nav>
-
+ -->
 
 </body>
 </html>

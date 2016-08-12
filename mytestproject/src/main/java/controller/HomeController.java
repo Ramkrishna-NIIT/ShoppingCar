@@ -42,12 +42,12 @@ public class HomeController {
 	{
 		return "home";
 	}
-    
+  /*  
     @RequestMapping("/registration")
 	public String showRegistrationPage()
 	{
 		return "registration";
-	}
+	}*/
     
     @RequestMapping(value="/showuserdetails",method = RequestMethod.GET)
    	public String showUserDeatils(Model model)
