@@ -17,13 +17,13 @@ import model.userlist;
 public class UserController {
 
 	
-	
+		
 	    private UserService us;
 	    
 	    @Autowired
 	    public UserController(UserService us)
 	    {
-	    	
+	    	this.us=us;
 	    }
 	    public UserController()
 	    {
@@ -31,7 +31,7 @@ public class UserController {
 	    }
 	    
 
-		 @RequestMapping(value = "/user", method = RequestMethod.GET)
+		 @RequestMapping(value = "/user", method = RequestMethod.GET )
 		    public String listUser(Model model) {
 		        model.addAttribute("user", new userlist());
 		        //model.addAttribute("listfromtable", this.us.listUser());

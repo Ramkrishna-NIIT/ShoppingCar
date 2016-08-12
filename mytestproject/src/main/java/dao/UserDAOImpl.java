@@ -27,6 +27,7 @@ public class UserDAOImpl {
 
 	 public void addUser(userlist u) {
 	        Session session = this.sessionFactory.getCurrentSession();
+	        System.out.println("Inside addUser method");
 	        session.save(u);
 	        
 	    }
