@@ -28,12 +28,18 @@
    </bean>
     
     <mvc:resources mapping="/resources/**" location="/resources/" />
+    <!-- ===================Multipart Bean===================== -->
+    <bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="1024000" />
+	</bean>
 
     
     <!-- ========Creating beans for the autowired objects ========== -->
-    	<!-- <bean id="pdi" class="dao.ProductDAOImpl"></bean>
+    	 <bean id="pdi" class="dao.ProductDAOImpl"></bean>
+    	   	 <bean id="udi" class="dao.UserDAOImpl"></bean>
 	
-	<bean id="ps" class="controller.ProductService"></bean> -->
+	<!--  <bean id="ps" class="controller.ProductService"></bean> -->
     
     
 

@@ -150,7 +150,7 @@ margin-top:20px;
 				</a>
 				<li><a href="#" target="_blank">My Cart</a></li>
 
-				<li><a href="products">Login</a></li>
+				<li><a href="adminlogin">Login</a></li>
 				<li><a href="user">Register</a></li>
 			</ul>
 

@@ -1,11 +1,9 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+	pageEncoding="ISO-8859-1"%>
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <title>data table</title>
@@ -35,43 +33,42 @@ th, td {
 }
 
 tr:nth-child(even){background-color: #f2f2f2}
-
-
 </style>
 </head>
 <body>
+<%-- <%@ include file="headercar.jsp" %>
+<br>
+<br>
+<br> --%>
 
-<div class="container" style="overflow-x:auto;">
-<table id="myTable" class="display" width="100%">   
-        <thead>
+<div style="overflow-x:auto;">
+<table id="myTable" class="display" width="100%">  
+        <thead>  
           <tr>  
-            <th>id</th>  
-            <th> name</th>  
-            <th>price</th>  
-            <th>category</th> 
-            <th>milage</th>
-             <th>displacement</th> 
-            <th>description</th>
-             
+            <th>Id</th>  
+            <th>Name</th>  
+            <th>Price</th>  
+            <th>Category</th>  
+            <th>Milage</th>  
+            <th>Displacement</th>  
+            <th>Description</th>
           </tr>  
-        </thead> 
-        <tbody>
-        <c:forEach items="${listtojsp}" var="user">
-          <tr>  
-            <td>{{ user.id}}</td>  
-             <td>{{ user.name}}</td>  
-             <td>{{ user.price}}</td>  
-             <td>{{ user.category}}</td> 
-             <td>{{ user.milage}}</td>  
-             <td>{{ user.displacement}}</td>  
-             <td>{{ user.description}}</td> 
-
-        
-           </tr>  
- 	</c:forEach>
-        
+        </thead>  
+        <tbody>  
+         <c:forEach items="${listtojsp}" var="element">
+            <tr>
+             <td>${element.id}</td>  
+             <td>${element.name}</td>  
+             <td>${element.price}</td>  
+             <td>${element.category}</td> 
+             <td>${element.milage}</td>  
+             <td>${element.displacement}</td>  
+             <td>${element.description}</td>
+            </tr> 
+          </c:forEach>
         </tbody>  
       </table> 
      </div> 
+   <%--   <%@ include file="footercar.jsp" %> --%>
 </body>
-</html>
+</html>                       

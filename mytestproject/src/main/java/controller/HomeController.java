@@ -42,12 +42,12 @@ public class HomeController {
 	{
 		return "home";
 	}
-  /*  
-    @RequestMapping("/registration")
+   
+    @RequestMapping("/adminlogin")
 	public String showRegistrationPage()
 	{
-		return "registration";
-	}*/
+		return "login";
+	}
     
     @RequestMapping(value="/showuserdetails",method = RequestMethod.GET)
    	public String showUserDeatils(Model model)
@@ -55,10 +55,12 @@ public class HomeController {
     	 model.addAttribute("listtojsp", this.ps.listPersons());
      	return "UserDetails";
    	}
+    
+    
 	
    
     
-    @RequestMapping(value="/products",method = RequestMethod.GET)
+    @RequestMapping(value="/adminproduct",method = RequestMethod.GET)
     public ModelAndView listPersons(Model model){
       	 model.addAttribute("product", new Product());	
     	 model.addAttribute("listfromtable", this.ps.listPersons());   	
@@ -66,7 +68,7 @@ public class HomeController {
 		Productlist=ps.listPersons();
 		String json = new Gson().toJson(Productlist);  // converting list into Google Gson object which is a string
 		
-		ModelAndView mv=new ModelAndView("marutidatatable");
+		ModelAndView mv=new ModelAndView("adminproduct");
 		mv.addObject("myJson", json);
 		return mv;
 
@@ -128,7 +130,7 @@ public class HomeController {
     public String editPerson(@PathVariable("id") int id, Model model){
         model.addAttribute("student", this.ps.getPersonById(id));
         model.addAttribute("listfromtable", this.ps.listPersons());
-        return "marutidatatable";
+        return "adminproduct";
     }
     
     

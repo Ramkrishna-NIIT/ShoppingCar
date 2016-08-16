@@ -56,11 +56,11 @@
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="navbarCollapse">
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="Showhomepage" >Home</a></li>
+				<li class="active"><a href="Showhomepage">Home</a></li>
 				<li class="dropdown"><a href="#" data-toggle="dropdown"
 					class="dropdown-toggle">Products<b class="caret"></b></a>
 					<ul class="dropdown-menu">
-					<li><a href="hyndaicar">Hyndai</a></li>
+						<li><a href="hyndaicar">Hyndai</a></li>
 						<li><a href="#">Maruti</a></li>
 						<li><a href="#">Volvo</a></li>
 						<li><a href="#">Mercedes</a></li>
@@ -90,96 +90,89 @@
 		<p class="text-success">Register Yourself</p>
 	</h1>
 
-	
-<c:url var="addAction" value="/user/add" ></c:url>
-<form:form action="${addAction}" commandName="user" method="POST" >
-
-<table>
-
- <c:if test="${!empty user.username}">
-    <tr>
-        <td>
-            <form:label path="id">
-                <spring:message text="ID"/>
-            </form:label>
-        </td>
-        <td>
-            <form:input path="id" readonly="true" size="8"  disabled="true" />
-            <form:hidden path="id" />
-        </td> 
-    </tr>
-    </c:if>
-
-<tr>
-
-<td>User Name:<FONT color="red"><form:errors
-
-path="username" /></FONT></td>
-
-</tr>
-
-<tr>
-
-<td><form:input path="username" /></td>
-
-</tr>
-
-<tr>
-
-<td>Password:<FONT color="red"><form:errors
-
-path="password" /></FONT></td>
-
-</tr>
-
-<tr>
-
-<td><form:password path="password" /></td>
-
-</tr>
-
-<tr>
-
-<td>Confirm Password:<FONT color="red"><form:errors
-
-path="confirmpassword" /></FONT></td>
-
-</tr>
-
-<tr>
-
-<td><form:password path="confirmpassword" /></td>
-
-</tr>
-
-<tr>
-
-<td>Email:<FONT color="red"><form:errors path="email" /></FONT></td>
-
-</tr>
-
-<tr>
-
-<td><form:input path="email" /></td>
-
-</tr>
-
-<tr>
-
-<td>
- <c:if test="${empty user.username}">
-<button type="submit" value="Submit">Sign In</button>
-</td>
-</c:if>
-</tr>
-
-</table>
-
-</form:form>
 
 
-	
-<!-- 	</div>
+					<c:url var="addAction" value="/user/add"></c:url>
+					<form:form action="${addAction}" commandName="user" method="POST">
+
+						<table>
+
+							<c:if test="${!empty user.username}">
+								<tr>
+									<td><form:label path="id">
+											<spring:message text="ID" />
+										</form:label></td>
+									<td><form:input path="id" readonly="true" size="8"
+											disabled="true" /> <form:hidden path="id" /></td>
+								</tr>
+							</c:if>
+
+							<tr>
+
+								<td>User Name:<FONT color="red"><form:errors
+											path="username" /></FONT></td>
+
+							</tr>
+
+							<tr>
+
+								<td><form:input path="username" /></td>
+
+							</tr>
+
+							<tr>
+
+								<td>Password:<FONT color="red"><form:errors
+											path="password" /></FONT></td>
+
+							</tr>
+
+							<tr>
+
+								<td><form:password path="password" /></td>
+
+							</tr>
+
+							<tr>
+
+								<td>Confirm Password:<FONT color="red"><form:errors
+											path="confirmpassword" /></FONT></td>
+
+							</tr>
+
+							<tr>
+
+								<td><form:password path="confirmpassword" /></td>
+
+							</tr>
+
+							<tr>
+
+								<td>Email:<FONT color="red"><form:errors
+											path="email" /></FONT></td>
+
+							</tr>
+
+							<tr>
+
+								<td><form:input path="email" /></td>
+
+							</tr>
+
+							<tr>
+
+								<td><c:if test="${empty user.username}">
+										<button type="submit" value="Submit">Sign In</button></td>
+								</c:if>
+							</tr>
+
+						</table>
+
+					</form:form>
+
+
+
+	<!-- 	</div>
 	<br>
 	<br>
 	<br>
