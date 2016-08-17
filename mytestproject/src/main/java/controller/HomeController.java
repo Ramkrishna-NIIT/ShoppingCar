@@ -56,6 +56,12 @@ public class HomeController {
      	return "UserDetails";
    	}
     
+    @RequestMapping("/UserProDuctdetails")
+  	public String showProductDetails()
+  	{
+  		return "UserProductDetails";
+  	}
+    
     
 	
    
@@ -101,8 +107,9 @@ public class HomeController {
 	            {
 	                System.out.println(ex.getMessage());
 	            }
+	            
 	        }
-    	
+    	System.out.println("image inserted");
     	
     	
     	/************************************/
@@ -114,7 +121,7 @@ public class HomeController {
             this.ps.updatePerson(p);
         }*/
          
-        return "redirect:/products";
+        return "redirect:/adminproduct";
 	        
     }
     
@@ -123,7 +130,7 @@ public class HomeController {
     public String removePerson(@PathVariable("id") int id){
          
         this.ps.removePerson(id);
-        return "redirect:/products";
+        return "redirect:/adminproduct";
     }
     
     @RequestMapping("/edit/{id}")

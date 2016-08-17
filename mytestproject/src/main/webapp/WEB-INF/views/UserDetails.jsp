@@ -7,7 +7,8 @@
 <head>
 <meta charset="UTF-8">
 <title>data table</title>
-<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">   
+<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <link rel="stylesheet" 
 href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css"></style>
@@ -20,7 +21,11 @@ $(document).ready(function(){
     $('#myTable').dataTable();
 });
 </script>
+
+
 <style>
+
+
 <table id="myTable" class="table table-striped"> 
 table {
     border-collapse: collapse;
@@ -36,11 +41,9 @@ tr:nth-child(even){background-color: #f2f2f2}
 </style>
 </head>
 <body>
-<%-- <%@ include file="headercar.jsp" %>
-<br>
-<br>
-<br> --%>
 
+	<!-- ==========================User product table============================= -->
+<h2>User Products</h2>
 <div style="overflow-x:auto;">
 <table id="myTable" class="display" width="100%">  
         <thead>  
@@ -64,6 +67,7 @@ tr:nth-child(even){background-color: #f2f2f2}
              <td>${element.milage}</td>  
              <td>${element.displacement}</td>  
              <td>${element.description}</td>
+           <td><a href="UserProDuctdetails?id=${element.id}&name=${element.name}&price=${element.price}&category=${element.category}&milage=${element.milage}&displacement=${element.displacement}&description=${element.description}">Details</a></td>
             </tr> 
           </c:forEach>
         </tbody>  
