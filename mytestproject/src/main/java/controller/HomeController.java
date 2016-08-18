@@ -130,7 +130,7 @@ public class HomeController {
     public String removePerson(@PathVariable("id") int id){
          
         this.ps.removePerson(id);
-        return "redirect:/adminproduct";
+        return "redirect:/adminproduct ";
     }
     
     @RequestMapping("/edit/{id}")
