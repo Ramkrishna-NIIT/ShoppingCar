@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 import model.*;
 
@@ -14,6 +15,8 @@ import model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.BindingResultUtils;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -49,7 +52,7 @@ public class HomeController {
 		return "login";
 	}
     
-    @RequestMapping(value="/showuserdetails",method = RequestMethod.GET)
+    @RequestMapping(value={"/showuserdetails","Marutiproducts","volvo","mercedes"},method = RequestMethod.GET)
    	public String showUserDeatils(Model model)
    	{
     	 model.addAttribute("listtojsp", this.ps.listPersons());
@@ -80,19 +83,20 @@ public class HomeController {
 
     }
     @RequestMapping(value= "/marutidatatable/add", method = RequestMethod.POST)
-    public String addPerson(@ModelAttribute("product") Product p, HttpServletRequest request){
+    public String addPerson(@Valid @ModelAttribute("product") Product p, HttpServletRequest request){
         
     	/*************************************/
     	
     	String filename=null;
 		  byte[] bytes;
+		  
 		  if(!p.getImage().isEmpty())
 	        {
 			 
 	            try
 	            {
 	            	bytes=p.getImage().getBytes();
-	                this.ps.addPerson(p);
+	            	 this.ps.addPerson(p);
 	                System.out.println("Data Inserted");
 					String path=request.getSession().getServletContext().getRealPath("/resources/images/"+p.getId()+".jpg");
 					System.out.println("Path = "+path);
@@ -109,19 +113,17 @@ public class HomeController {
 	            }
 	            
 	        }
-    	System.out.println("image inserted");
-    	
-    	
-    	/************************************/
-       /* if(p.getId() == 0){
-            //new person, add it
-            this.ps.addPerson(p);
-        }else{
-            //existing person, call update
-            this.ps.updatePerson(p);
-        }*/
-         
-        return "redirect:/adminproduct";
+    	System.out.println("image inserted"); 
+    	/*if(result.hasErrors())
+		  {
+			  return "redirect:/adminproduct";
+		  }
+		  else
+		  {
+			  this.ps.addPerson(p);
+		  }
+*/        return "redirect:/adminproduct";
+		  
 	        
     }
     

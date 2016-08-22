@@ -57,25 +57,5 @@ public class UserController {
 		         
 		    }
 		 
-		/* @RequestMapping("/remove/{id}")
-		    public String removeUser(@PathVariable("id") int id){
-		         
-		        this.us.removeUser(id);
-		        return "redirect:/userlist";
-		    }*/
-		  
-		  /*  @RequestMapping("/edit/{id}")
-		    public String edituser(@PathVariable("id") int id, Model model){
-		        model.addAttribute("userlist", this.us.getUserById(id));
-		        model.addAttribute("listfromtable", this.us.listUser());
-		        return "registration";
-		    }
-*/		
-		
-	/*	@RequestMapping("/")
-		public String showIndexPage()
-		{
-			return("redirect:/students");
-		}
-*/
+		 
 }

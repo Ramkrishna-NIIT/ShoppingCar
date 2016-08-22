@@ -133,11 +133,11 @@ margin-top:20px;
 				<li class="dropdown"><a href="#" data-toggle="dropdown"
 					class="dropdown-toggle">Car Products<b class="caret"></b></a>
 					<ul class="dropdown-menu">
-						<li><a href="showuserdetails">Hyndai</a></li>
-						<li><a href="Marutiproducts">Maruti</a></li>
-						<li><a href="#">Volvo</a></li>
-						<li><a href="#">Mercedes</a></li>
-						<li><a href="#">Renault Duster</a></li>
+						<li><a href="showuserdetails?name=Hyundai">Hyundai</a></li>
+						<li><a href="Marutiproducts?name=Maruti">Maruti</a></li>
+						<li><a href="volvo?name=Volvo">Volvo</a></li>
+						<li><a href="mercedes?name=Mercedes">Mercedes</a></li>
+						
 					</ul></li>
 				<li><a href="#" target="_blank">About</a></li>
 				<li><a href="#" target="_blank">Contact</a></li>
@@ -362,12 +362,12 @@ margin-top:20px;
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
 			<li>
-			<!--  <a class="navbar-brand" rel="home"
+			 <a class="navbar-brand" rel="home"
 				href="https://www.facebook.com/" title="facebook"> <img
 					style="max-width: 30px; margin-top: -10px;"
-					src="resources/images/facebook.png"></a> -->
-					<i class="fa fa-facebook" aria-hidden="true"></i>
-			</li>
+					src="resources/images/facebook.png"></a> 
+					<!-- <i class="fa fa-facebook" aria-hidden="false"></i>
+ -->			</li>
 
 
 

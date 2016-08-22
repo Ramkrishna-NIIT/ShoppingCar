@@ -27,7 +27,7 @@
 </style>
 </head>
 
-<body>
+<body style="background-color:#CDFFDC;">
 
 
 	<nav id="myNavbar"
@@ -64,7 +64,7 @@
 						<li><a href="#">Maruti</a></li>
 						<li><a href="#">Volvo</a></li>
 						<li><a href="#">Mercedes</a></li>
-						<li><a href="#">Renault Duster</a></li>
+						
 					</ul></li>
 				<li><a href="#" target="_blank">About</a></li>
 				<li><a href="#" target="_blank">Contact</a></li>

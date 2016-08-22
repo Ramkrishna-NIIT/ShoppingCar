@@ -73,7 +73,7 @@
 			<div class="msg">${msg}</div>
 		</c:if>
 
-		<form name='loginForm'
+		<form name='loginForm'   
 			action="<c:url value='perform_login' />" method='POST'>
 
 			<table>
@@ -86,7 +86,7 @@
 					<td><input type='password' name='password' /></td>
 				</tr>
 				<tr>
-					<td colspan='2'><input name="submit" type="submit"
+					<td colspan='2'><input name="submit" type ="submit"
 						value="submit" /></td>
 				</tr>
 			</table>

@@ -6,7 +6,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>data table</title>
+<title>User Products </title>
 <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
   
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
@@ -16,9 +16,10 @@ href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css"></style>
 src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" 
 src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<%-- <%@ include file="headercar.jsp" %>  --%>
 <script>
 $(document).ready(function(){
-    $('#myTable').dataTable();
+    $('#myTable').dataTable({"oSearch": {"sSearch": "${param.name}"}});
 });
 </script>
 
@@ -40,7 +41,8 @@ th, td {
 tr:nth-child(even){background-color: #f2f2f2}
 </style>
 </head>
-<body>
+
+<body style="background-color:#CDFFDC;">
 
 	<!-- ==========================User product table============================= -->
 <h2>User Products</h2>
@@ -55,6 +57,7 @@ tr:nth-child(even){background-color: #f2f2f2}
             <th>Milage</th>  
             <th>Displacement</th>  
             <th>Description</th>
+            <th>Details</th>
           </tr>  
         </thead>  
         <tbody>  

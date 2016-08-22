@@ -5,7 +5,7 @@
 <!DOCTYPE html>  
  <html>  
  <head>  
-   <title>Angular JS table sort and filter example </title>  
+   <title>Admin Product </title>  
    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">  
    <script src="http://code.angularjs.org/1.4.8/angular.js"></script>  
    <script src="http://code.angularjs.org/1.4.8/angular-resource.js"></script>  
@@ -45,7 +45,12 @@
        background-color: darkgray;  
        color: white;  
        height: 30px;  
-     }  
+     } 
+     .error {
+	color: #ff0000;
+	font-style: italic;
+	font-weight: bold;
+} 
    </style>  
  </head>  
 <%@ include file="headercar.jsp" %>
@@ -75,17 +80,19 @@
         </td>
         <td>
             <form:input path="name" />
-        </td> 
+        </td>
+        <td align="left"><form:errors path="name" cssClass="error" /></td> 
     </tr>
     <tr>
         <td>
             <form:label path="price">
                 <spring:message text="PRICE"/>
             </form:label>
-        </td>
+        </td>  
         <td>
             <form:input path="price" />
         </td>
+         <td align="left"><form:errors path="price" cssClass="error" /></td> 
     </tr>
     <tr>
         <td>
@@ -96,6 +103,7 @@
         <td>
             <form:input path="category" />
         </td>
+        <td align="left"><form:errors path="category" cssClass="error" /></td> 
     </tr>
     <tr>
         <td>
@@ -106,6 +114,7 @@
         <td>
             <form:input path="milage" />
         </td>
+        <td align="left"><form:errors path="milage" cssClass="error" /></td> 
     </tr>
     <tr>
         <td>
@@ -116,6 +125,7 @@
         <td>
             <form:input path="displacement" />
         </td>
+        <td align="left"><form:errors path="displacement" cssClass="error" /></td> 
     </tr>
      <tr>
         <td>
@@ -126,6 +136,7 @@
         <td>
             <form:input path="description" />
         </td>
+         <td align="left"><form:errors path="description" cssClass="error" /></td> 
     </tr>
     <tr>
     	<td>

@@ -126,6 +126,11 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     <artifactId>hibernate-validator</artifactId>
     <version>5.2.1.Final</version>
 </dependency>
+<dependency>
+    <groupId>javax.validation</groupId>
+    <artifactId>validation-api</artifactId>
+    <version>1.1.0.Final</version>
+</dependency>
 
 
 
@@ -231,6 +236,20 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 			</exclusions>
 			<scope>runtime</scope>
 		</dependency>
+		
+		<!-- http://mvnrepository.com/artifact/javax.mail/mail -->
+		<dependency>
+    		<groupId>javax.mail</groupId>
+    		<artifactId>mail</artifactId>
+    		<version>1.4.7</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-context-support -->
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-context-support</artifactId>
+    <version>3.2.0.RELEASE</version>
+</dependency>
+		
 
 
 	</dependencies>
