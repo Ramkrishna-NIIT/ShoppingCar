@@ -16,7 +16,7 @@ href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css"></style>
 src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" 
 src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<%-- <%@ include file="headercar.jsp" %>  --%>
+ <%-- <%@ include file="headercar.jsp" %>  --%>
 <script>
 $(document).ready(function(){
     $('#myTable').dataTable({"oSearch": {"sSearch": "${param.name}"}});
