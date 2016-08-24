@@ -139,8 +139,8 @@ margin-top:20px;
 						<li><a href="mercedes?name=Mercedes">Mercedes</a></li>
 						
 					</ul></li>
-				<li><a href="#" target="_blank">About</a></li>
-				<li><a href="#" target="_blank">Contact</a></li>
+				<li><a href="About">About</a></li>
+				<li><a href="Contact">Contact</a></li>
 
 			</ul>
 			<ul class="nav navbar-nav navbar-right">

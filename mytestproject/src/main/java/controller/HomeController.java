@@ -15,6 +15,7 @@ import model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.BindingResultUtils;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -142,6 +143,26 @@ public class HomeController {
         return "adminproduct";
     }
     
+    
+    @RequestMapping("/About")
+   	public String showAbout()
+   	{
+   		return "about";
+   	} 
+    
+    @RequestMapping("/Contact")
+   	public String showContact()
+   	{
+   		return "contact";
+   	}
+    
+    @RequestMapping(value="/loginError", method = RequestMethod.GET)
+    public String loginError(ModelMap model) {
+    		    model.addAttribute("error", "Invalid Username or Password!!");
+    		    return "login";
+    		     
+    		    }
+ 
     
     
 
