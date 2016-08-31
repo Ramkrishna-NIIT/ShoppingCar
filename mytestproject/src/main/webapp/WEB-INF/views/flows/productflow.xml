@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow
+                          http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+
+ <!-- if not specified the first view state is the starting state -->
+	
+	<view-state id="start" view="ProductCheckout.jsp">
+    <transition on="next" to="ThankYou"/>
+    </view-state>
+	
+  <!--  
+    <view-state id="displayProductCheckout" view="jsp/ThankYou.jsp">
+	 <transition on="Previous" to="ProductCheckout" />
+   </view-state> -->
+	
+<!-- <view-state id="ThankYou" view="ThankYou" model="flowScope.userBean">
+<transition on="previous" to="ProductCheckout" />
+</view-state> -->
+		
+	<end-state id="ThankYou" view="ThankYou" />
+</flow>	
+<!-- <flow ...>
+	<view-state id="enterBasicInfo">
+		<transition on="next" to="enterDetails" />
+		<transition on="done" to="completed" />
+	</view-state>
+	
+	<view-state id="enterDetails">
+		<transition on="next" to="enterMoreDetails" />
+		<transition on="done" to="completed" />
+	</view-state>
+
+	<view-state id="enterMoreDetails">
+		<transition on="done" to="completed" />
+	</view-state>
+	
+	<end-state id="completed" />
+</flow>
+ -->
+
+

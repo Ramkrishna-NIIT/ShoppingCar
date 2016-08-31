@@ -40,7 +40,7 @@ public class Product implements Serializable{
 	private String milage;
 	 @javax.validation.constraints.NotNull(message="Displacement Can not be null")
 	private String displacement;
-	 @Length(max=1000,min=10,message="The message description should be within 500 to 1000 character")
+	 @Length(max=1000,min=10,message="The message description should be within 10 to 1000 character")
 	private String description;
 	
 	@Transient
