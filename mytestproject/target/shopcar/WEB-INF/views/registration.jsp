@@ -27,7 +27,7 @@
 </style>
 </head>
 
-<body>
+<body style="background-color:#CDFFDC;">
 
 
 	<nav id="myNavbar"
@@ -60,11 +60,10 @@
 				<li class="dropdown"><a href="#" data-toggle="dropdown"
 					class="dropdown-toggle">Products<b class="caret"></b></a>
 					<ul class="dropdown-menu">
-						<li><a href="hyndaicar">Hyndai</a></li>
-						<li><a href="#">Maruti</a></li>
-						<li><a href="#">Volvo</a></li>
-						<li><a href="#">Mercedes</a></li>
-						<li><a href="#">Renault Duster</a></li>
+						<li><a href="showuserdetails?name=Hyundai">Hyundai</a></li>
+						<li><a href="Marutiproducts?name=Maruti">Maruti</a></li>
+						<li><a href="volvo?name=Volvo">Volvo</a></li>
+						<li><a href="mercedes?name=Mercedes">Mercedes</a></li>						
 					</ul></li>
 				<li><a href="#" target="_blank">About</a></li>
 				<li><a href="#" target="_blank">Contact</a></li>

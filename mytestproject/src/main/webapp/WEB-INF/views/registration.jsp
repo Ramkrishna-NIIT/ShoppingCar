@@ -24,6 +24,45 @@
 .form-horizontal .control-label {
 	padding-top: 7px;
 }
+<!-- form in center -->
+ body {
+    
+    margin: 0;
+    padding: 0;
+}
+h1 {
+    color : #000000;
+    text-align : center;
+    font-family: "SIMPSON";
+}
+form {
+   width: 300px;
+    margin: 0 auto;
+     
+}
+
+
+input {
+ width: 100%;
+ border-radius: 10px;
+    background-color: #f2f2f2;
+    padding: 10px;
+}
+
+button[type=submit]{
+background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+   
+}
+button[type=submit]:hover {
+    background-color: #45a049;
+}
+
 </style>
 </head>
 
@@ -115,7 +154,7 @@
 
 							<tr>
 
-								<td><form:input path="username" /></td>
+								<td><form:input type="text" path="username" /></td>
 
 							</tr>
 
@@ -157,7 +196,7 @@
 								<td><form:input path="email" /></td>
 
 							</tr>
-
+<br>
 							<tr>
 
 								<td><c:if test="${empty user.username}">
