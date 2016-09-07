@@ -56,7 +56,7 @@ public class UserController {
 		            this.us.updateUser(p);
 		        }
 		         */
-		        return "redirect:/Showhomepage";
+		        return "registrationsuccess"  /*"redirect:/Showhomepage"*/;
 		         
 		    }
 		 
