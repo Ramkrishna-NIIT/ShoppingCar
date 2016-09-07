@@ -1,6 +1,7 @@
 package controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -39,8 +40,10 @@ public class UserController {
 		    }
 		 
 		 @RequestMapping(value= "/user/add", method = RequestMethod.POST)
-		    public String addUser(@ModelAttribute("user") userlist u,BindingResult result, HttpServletRequest request){
+		    public String addUser(@Valid @ModelAttribute("user") userlist u,BindingResult result, HttpServletRequest request){
 		         
+			 if(result.hasErrors())
+				 return "registration";
 			 
 			 u.setEnabled(true);
 				u.setRole("ROLE_USER");

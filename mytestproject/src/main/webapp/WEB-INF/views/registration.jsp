@@ -45,7 +45,7 @@ form {
 input {
  width: 100%;
  border-radius: 10px;
-    background-color: #f2f2f2;
+    background-color:#FAADBA;
     padding: 10px;
 }
 
@@ -148,7 +148,7 @@ button[type=submit]:hover {
 							<tr>
 
 								<td>User Name:<FONT color="red"><form:errors
-											path="username" /></FONT></td>
+											path="username" cssClass="error"/></FONT></td>
 
 							</tr>
 
@@ -161,7 +161,7 @@ button[type=submit]:hover {
 							<tr>
 
 								<td>Password:<FONT color="red"><form:errors
-											path="password" /></FONT></td>
+											path="password" cssClass="error"/></FONT></td>
 
 							</tr>
 
@@ -174,7 +174,7 @@ button[type=submit]:hover {
 							<tr>
 
 								<td>Confirm Password:<FONT color="red"><form:errors
-											path="confirmpassword" /></FONT></td>
+											path="confirmpassword" cssClass="error"/></FONT></td>
 
 							</tr>
 
@@ -187,7 +187,7 @@ button[type=submit]:hover {
 							<tr>
 
 								<td>Email:<FONT color="red"><form:errors
-											path="email" /></FONT></td>
+											path="email" cssClass="error"/></FONT></td>
 
 							</tr>
 

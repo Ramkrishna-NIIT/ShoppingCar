@@ -84,7 +84,7 @@ public class HomeController {
 
     }
     @RequestMapping(value= "/marutidatatable/add", method = RequestMethod.POST)
-    public String addPerson(@Valid @ModelAttribute("product") Product p, HttpServletRequest request){
+    public String addPerson(@Valid @ModelAttribute("product") Product p,BindingResult result, HttpServletRequest request){
         
     	/*************************************/
     	
@@ -97,7 +97,13 @@ public class HomeController {
 	            try
 	            {
 	            	bytes=p.getImage().getBytes();
-	            	 this.ps.addPerson(p);
+	            	if(result.hasErrors())
+	      		 
+	      			  return "adminproduct";
+	      		  
+	      		  
+	      			  this.ps.addPerson(p);
+	      		 
 	                System.out.println("Data Inserted");
 					String path=request.getSession().getServletContext().getRealPath("/resources/images/"+p.getId()+".jpg");
 					System.out.println("Path = "+path);
@@ -114,7 +120,7 @@ public class HomeController {
 	            }
 	            
 	        }
-    	System.out.println("image inserted"); 
+    	
     	/*if(result.hasErrors())
 		  {
 			  return "redirect:/adminproduct";

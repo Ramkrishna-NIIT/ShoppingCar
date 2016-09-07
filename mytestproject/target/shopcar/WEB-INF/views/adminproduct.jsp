@@ -51,6 +51,29 @@
 	font-style: italic;
 	font-weight: bold;
 } 
+<!-- form center -->
+ body {
+   
+    margin: 0;
+    padding: 0;
+}
+h1 {
+    color : #000000;
+    text-align : center;
+    font-family: "SIMPSON";
+}
+form {
+    width: 300px;
+    margin: 0 auto;
+}
+
+input {
+ width: 100%;
+ border-radius: 10px;
+    background-color: #f2f2f2;
+    padding: 10px;
+}
+
    </style>  
  </head>  
 <%@ include file="headercar.jsp" %>

@@ -67,6 +67,27 @@ form {
     margin: 0 auto;
 }
 
+input {
+ width: 100%;
+ border-radius: 10px;
+    background-color: #FAADBA;
+    padding: 10px;
+}
+
+input[type=submit]{
+background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+   
+}
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
    </style>  
  </head>  
 <%@ include file="headercar.jsp" %>
@@ -97,7 +118,7 @@ form {
         <td>
             <form:input path="name" />
         </td>
-        <td align="left"><form:errors path="name" cssClass="error" /></td> 
+        <td><form:errors path="name" cssClass="error" /></td> 
     </tr>
     <tr>
         <td>
@@ -108,7 +129,7 @@ form {
         <td>
             <form:input path="price" />
         </td>
-         <td align="left"><form:errors path="price" cssClass="error" /></td> 
+         <td><form:errors path="price" cssClass="error" /></td> 
     </tr>
     <tr>
         <td>
@@ -119,7 +140,7 @@ form {
         <td>
             <form:input path="category" />
         </td>
-        <td align="left"><form:errors path="category" cssClass="error" /></td> 
+        <td><form:errors path="category" cssClass="error" /></td> 
     </tr>
     <tr>
         <td>
@@ -130,7 +151,7 @@ form {
         <td>
             <form:input path="milage" />
         </td>
-        <td align="left"><form:errors path="milage" cssClass="error" /></td> 
+        <td><form:errors path="milage" cssClass="error" /></td> 
     </tr>
     <tr>
         <td>
@@ -141,7 +162,7 @@ form {
         <td>
             <form:input path="displacement" />
         </td>
-        <td align="left"><form:errors path="displacement" cssClass="error" /></td> 
+        <td><form:errors path="displacement" cssClass="error" /></td> 
     </tr>
      <tr>
         <td>
@@ -152,7 +173,7 @@ form {
         <td>
             <form:input path="description" />
         </td>
-         <td align="left"><form:errors path="description" cssClass="error" /></td> 
+         <td><form:errors path="description" cssClass="error" /></td> 
     </tr>
     <tr>
     	<td>

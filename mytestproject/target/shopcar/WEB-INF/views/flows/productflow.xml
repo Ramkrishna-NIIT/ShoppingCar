@@ -7,10 +7,15 @@
  <!-- if not specified the first view state is the starting state -->
 	
 	<view-state id="start" view="ProductCheckout.jsp">
-    <transition on="ThankYou" to="ThankYou"/>
+    <transition on="thankyou" to="ThankYou"/>
+    <transition on="checkout" to="ProductCheckout"/>
+    
     </view-state>
     
-    <view-state id="ThankYou" view="ThankYou">
+    <view-state id="ThankYou" view="ThankYou.jsp">
+    
+    </view-state>
+    <view-state id="ProductCheckout" view="ProductCheckout.jsp">
     
     </view-state>
 	

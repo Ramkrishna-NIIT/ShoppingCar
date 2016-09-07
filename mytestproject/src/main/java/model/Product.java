@@ -14,7 +14,7 @@ import javax.validation.constraints.DecimalMax;
 import javax.validation.constraints.DecimalMin;
 
 import org.hibernate.validator.constraints.Length;
-
+import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.web.multipart.MultipartFile;
 
 
@@ -29,21 +29,22 @@ public class Product implements Serializable{
 	 @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	 
-	 @javax.validation.constraints.NotNull(message="Name Can not be null...")
+	 @NotBlank(message="Name Can not be null...")
 	private String name;
 	 @DecimalMax(value="99999999.99",message="The decimal value can not be more than 99999999.99")
 	 @DecimalMin(value="100000.00",message="The decimal value can not be less than 100000.00")
 	private double price;
-	 @javax.validation.constraints.NotNull(message="Category can not be null")
+	 @NotBlank(message="Category can not be null")
 	private String category;
-	 @javax.validation.constraints.NotNull(message="Milage can not be null")
+	 @NotBlank(message="Milage can not be null")
 	private String milage;
-	 @javax.validation.constraints.NotNull(message="Displacement Can not be null")
+	 @NotBlank(message="Displacement Can not be null")
 	private String displacement;
 	 @Length(max=1000,min=10,message="The message description should be within 10 to 1000 character")
 	private String description;
 	
 	@Transient
+	/*@NotBlank(message="image must be uploaded")*/
 	private MultipartFile image ;
 	
     
