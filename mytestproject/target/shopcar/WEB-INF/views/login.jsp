@@ -1,101 +1,36 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@page session="true"%>
-<!DOCTYPE html>   
-<html lang="en"> 
-<head> 
+<%@ include file="/WEB-INF/views/template/header.jsp" %>
+<br>
+<br>
 
-	<meta charset="utf-8">   
-	<title>Sign in for Admin</title>   
-	<link href="/twitter-bootstrap/twitter-bootstrap-v2/docs/assets/css/bootstrap2.2.css" rel="stylesheet">  
-	<link rel="stylesheet" href="demo.css">
-	<link rel="stylesheet" href="footer-distributed.css">
-	
-	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-	
-	
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="https://code.jquery.com/jquery.js"></script>
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<!--  ============ Defining styles for the login form ========= -->
+<div class="container-wrapper">
+    <div class="container">
+        <div id="login-box">
+            <h2>Login with Username and Password</h2>
 
-<style>
-.error {
-	padding: 15px;
-	margin-bottom: 20px;
-	border: 1px solid transparent;
-	border-radius: 4px;
-	color: #a94442;
-	background-color: #f2dede;
-	border-color: #ebccd1;
-}
+            <c:if test="${not empty msg}">
+                <div class="msg">${msg}</div>
+            </c:if>
+<!--  j_spring_security_check"-->
 
-.msg {
-	padding: 15px;
-	margin-bottom: 20px;
-	border: 1px solid transparent;
-	border-radius: 4px;
-	color: #31708f;
-	background-color: #d9edf7;
-	border-color: #bce8f1;
-}
+            <form name="loginForm" action="<c:url value="/j_spring_security_check" />" method="post">
 
-#login-box {
-	width: 300px;
-	padding: 20px;
-	margin: 100px auto;
-	background: #fff;
-	-webkit-border-radius: 2px;
-	-moz-border-radius: 2px;
-	border: 1px solid #000;
-}
-</style>
-</head>  
-<body onload='document.loginForm.username.focus();'>  
-<%@ include file="headercar.jsp" %>
-     
-     
-     <br><br>
+                <c:if test="${not empty error}">
+                    <div class="error" style="color: #ff0000;">${error}</div>
+                </c:if>
 
-<!-- ================ Sign in Form Design ============ -->
+                <div class="form-group">
+                    <label for="username">User: </label>
+                    <input type="text" id="username" name="username" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" class="form-control" />
+                </div>
+                <input type="submit" value="Submit" class="btn btn-default">
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+            </form>
+        </div>
+    </div>
+</div>
 
-<h1>Admin LogIn </h1>
-
-	<div id="login-box">
-
-		<h3>Login with Username and Password</h3>
-
-		<c:if test="${not empty error}">
-			<div class="error">${error}</div>
-		</c:if>
-		<c:if test="${not empty msg}">
-			<div class="msg">${msg}</div>
-		</c:if>
-
-		<form name='loginForm'   
-			action="<c:url value='perform_login' />" method='POST'>
-
-			<table>
-				<tr>
-					<td>User:</td>
-					<td><input type='text' name='username'></td>
-				</tr> 
-				<tr>
-					<td>Password:</td>
-					<td><input type='password' name='password' /></td>
-				</tr>
-				<tr>
-					<td colspan='2'><input name="submit" type ="submit"
-						value="submit" /></td>
-				</tr>
-			</table>
-
-			<input type="hidden" name="${_csrf.parameterName}"
-				value="${_csrf.token}" />
-
-		</form>
-	</div>
-
-</body>
-</html>
+<%@ include file="/WEB-INF/views/template/footer.jsp" %>

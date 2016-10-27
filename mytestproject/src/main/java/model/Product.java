@@ -1,140 +1,137 @@
 package model;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.validator.constraints.NotEmpty;
+/*import org.hibernate.validator.xml.FieldType;*/
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.persistence.*;
+import javax.validation.constraints.Min;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Transient;
-import javax.validation.constraints.DecimalMax;
-import javax.validation.constraints.DecimalMin;
-
-import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.NotBlank;
-import org.springframework.web.multipart.MultipartFile;
-
-
-
-
 @Entity
-@Table(name="Product")
-public class Product implements Serializable{
-	
-	 @Id
-	 @Column(name="id")
-	 @GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
-	 
-	 @NotBlank(message="Name Can not be null...")
-	private String name;
-	 @DecimalMax(value="99999999.99",message="The decimal value can not be more than 99999999.99")
-	 @DecimalMin(value="100000.00",message="The decimal value can not be less than 100000.00")
-	private double price;
-	 @NotBlank(message="Category can not be null")
-	private String category;
-	 @NotBlank(message="Milage can not be null")
-	private String milage;
-	 @NotBlank(message="Displacement Can not be null")
-	private String displacement;
-	 @Length(max=1000,min=10,message="The message description should be within 10 to 1000 character")
-	private String description;
-	
-	@Transient
-	/*@NotBlank(message="image must be uploaded")*/
-	private MultipartFile image ;
-	
-    
-	
+public class Product implements Serializable {
+
+    private static final long serialVersionUID = -3532377236419382983L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int productId;
+
+    @NotEmpty(message = "The product name must not be empty")
+    private String productName;
+
+    private String productCategory;
+    private String productDescription;
+
+    @Min(value = 0, message = "The product price must not be less then zero")
+    private double productPrice;
+    private String productCondition;
+    private String productStatus;
+
+
+    @Min(value = 0, message = "The product unit must not be less then zero")
+    private int unitInStock;
+    private String productManufacturer;
+
+    @Transient
+    private MultipartFile productImage;
+
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonIgnore
+    private List<CartItem> cartItemList;
+
+
+    public int getProductId() {
+        return productId;
+    }
+
+    public void setProductId(int productId) {
+        this.productId = productId;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public String getProductCategory() {
+        return productCategory;
+    }
+
+    public void setProductCategory(String productCategory) {
+        this.productCategory = productCategory;
+    }
+
+    public String getProductDescription() {
+        return productDescription;
+    }
+
+    public void setProductDescription(String productDescription) {
+        this.productDescription = productDescription;
+    }
+
+    public double getProductPrice() {
+        return productPrice;
+    }
+
+    public void setProductPrice(double productPrice) {
+        this.productPrice = productPrice;
+    }
+
+    public String getProductCondition() {
+        return productCondition;
+    }
+
+    public void setProductCondition(String productCondition) {
+        this.productCondition = productCondition;
+    }
+
+    public String getProductStatus() {
+        return productStatus;
+    }
+
+    public void setProductStatus(String productStatus) {
+        this.productStatus = productStatus;
+    }
+
+    public int getUnitInStock() {
+        return unitInStock;
+    }
+
+    public void setUnitInStock(int unitInStock) {
+        this.unitInStock = unitInStock;
+    }
+
+    public String getProductManufacturer() {
+        return productManufacturer;
+    }
+
+    public void setProductManufacturer(String productManufacturer) {
+        this.productManufacturer = productManufacturer;
+    }
+
+
+    public MultipartFile getProductImage() {
+        return productImage;
+    }
+
+    public void setProductImage(MultipartFile productImage) {
+        this.productImage = productImage;
+    }
+
+
+    public List<CartItem> getCartItemList() {
+        return cartItemList;
+    }
+
+    public void setCartItemList(List<CartItem> cartItemList) {
+        this.cartItemList = cartItemList;
+    }
+} // The End of Class;
 
 
 
-
-	public MultipartFile getImage() {
-		return image;
-	}
-
-
-	public void setImage(MultipartFile image) {
-		this.image = image;
-	}
-
-
-	public int getId() {
-		return id;
-	}
-
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-
-	public String getName() {
-		return name;
-	}
-
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-
-	public double getPrice() {
-		return price;
-	}
-
-
-	public void setPrice(double price) {
-		this.price = price;
-	}
-
-
-	public String getCategory() {
-		return category;
-	}
-
-
-	public void setCategory(String category) {
-		this.category = category;
-	}
-
-
-	public String getMilage() {
-		return milage;
-	}
-
-
-	public void setMilage(String milage) {
-		this.milage = milage;
-	}
-
-
-	public String getDisplacement() {
-		return displacement;
-	}
-
-
-	public void setDisplacement(String displacement) {
-		this.displacement = displacement;
-	}
-
-
-	public String getDescription() {
-		return description;
-	}
-
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-
-	public Product()
-	{
-
-	}
-}
